@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="/public/main.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- This is an SEO Change -->
@@ -9,8 +9,8 @@
     to track your expenses by making a budget for you to follow weekly. You will get 
     alerts if your budget is almost gone so you don’t accidentally overspend.">
     <title>Personal Budget</title>
-    <link rel="stylesheet" href="/reset.css">
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/public/reset.css">
+    <link rel="stylesheet" href="/public/main.css">
 </head>
 <body>
 
@@ -139,9 +139,9 @@
         }
 
         function getBudget() {
-            axios.get('/budget')
+            axios.get('http://localhost:4000/budget')
             .then(function (res){
-                console.log(res.data);
+                console.log(res);
                 for(var i = 0; i < res.data.myBudget.length; i++) {
                     dataSource.datasets[0].data[i] = res.data.myBudget[i].budget;
                     dataSource.labels[i] = res.data.myBudget[i].title;
